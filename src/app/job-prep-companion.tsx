@@ -17,17 +17,15 @@ const JobPrepCompanion = () => {
   });
   const [copiedStates, setCopiedStates] = useState({});
 
-  const copyToClipboard = async (text, id) => {
-    try {
-      await navigator.clipboard.writeText(text);
-      setCopiedStates(prev => ({ ...prev, [id]: true }));
-      setTimeout(() => {
-        setCopiedStates(prev => ({ ...prev, [id]: false }));
-      }, 2000);
-    } catch (err) {
-      console.error('Failed to copy text: ', err);
-    }
-  };
+  const copyToClipboard = async (text: string, id: string | number) => {
+  try {
+    await navigator.clipboard.writeText(text);
+    setCopiedStates((prev) => ({ ...prev, [id]: true }));
+  } catch (error) {
+    console.error("Failed to copy text:", error);
+  }
+};
+
 
   const handleFileUpload = async (event) => {
     const file = event.target.files[0];
