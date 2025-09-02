@@ -27,9 +27,13 @@ const JobPrepCompanion = () => {
 };
 
 
-  const handleFileUpload = async (event) => {
-    const file = event.target.files[0];
-    if (!file) return;
+  const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+  const file = event.target.files?.[0];
+  if (!file) return;
+
+  // Your existing logic here...
+};
+
 
     setResumeFile(file);
     
